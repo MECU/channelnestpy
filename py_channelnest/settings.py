@@ -20,14 +20,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'mlb(81)yf!+r(y_tfrrl#03%-pk=9re1408x^ctgz37cgd16f!'
-with open(os.getcwd() + os.sep + 'secret_key.txt') as f:
-    SECRET_KEY = f.read().strip()
+SECRET_KEY = os.environ.get('SECRET_KEY', 'mlb(81)yf!+r(y_tfrrl#03%-pk=9re1408x^ctgz37cgd16f!')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-with open(os.getcwd() + os.sep + 'debug.txt') as f:
-    DEBUG = f.read().strip()
+DEBUG = os.environ.get('DEBUG', False)
 
 ALLOWED_HOSTS = ['channelnest.com', 'channelnest.py', '127.0.0.1']
 
@@ -81,14 +77,11 @@ WSGI_APPLICATION = 'py_channelnest.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'channelnest',
-        'USER': 'homestead',
-        'PASSWORD': 'secret',
-        'HOST': '127.0.0.1',
-        'PORT': '33060',
-        'OPTIONS': {
-            'read_default_file': '../my.cnf', # This doesn't work
-        },
+        'NAME': os.environ.get('DB_DATABASE', 'channelnest'),
+        'USER': os.environ.get('DB_USER', 'homestead'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'secret'),
+        'HOST': os.environ.get('DB_HOST', '127.0.0.1'),
+        'PORT': os.environ.get('DB_PORT', '33060'),
     }
 }
 
