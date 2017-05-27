@@ -102,3 +102,5 @@ ENV/
 
 .idea
 my.cnf
+secret_key.txt
+debug.txt

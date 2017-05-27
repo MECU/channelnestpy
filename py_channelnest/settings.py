@@ -20,10 +20,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'mlb(81)yf!+r(y_tfrrl#03%-pk=9re1408x^ctgz37cgd16f!'
+# SECRET_KEY = 'mlb(81)yf!+r(y_tfrrl#03%-pk=9re1408x^ctgz37cgd16f!'
+with open(os.getcwd() + os.sep + 'secret_key.txt') as f:
+    SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+with open(os.getcwd() + os.sep + 'debug.txt') as f:
+    DEBUG = f.read().strip()
 
 ALLOWED_HOSTS = ['channelnest.com', 'channelnest.py', '127.0.0.1']
 
