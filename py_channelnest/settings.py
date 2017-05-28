@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'mlb(81)yf!+r(y_tfrrl#03%-pk=9re1408x^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', False)
 
-ALLOWED_HOSTS = ['channelnest.com', 'channelnest.py', '127.0.0.1']
+ALLOWED_HOSTS = ['channelnest.com', 'channelnest.py', '127.0.0.1', 'channelnest.herokuapp.com']
 
 
 # Application definition
