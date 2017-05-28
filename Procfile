@@ -1,1 +1,1 @@
-web: gunicorn channelnest.wsgi --log-file -
+web: gunicorn py_channelnest.wsgi --log-file -
