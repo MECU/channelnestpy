@@ -25,7 +25,7 @@ def videoSubmit(request):
 def videoCheck(request):
     videoURL = request.GET.get('url')
 
-    matches = re.search('https?:\/\/video.nest.com\/clip\/([a-f0-9]{32})[\.mp4]+', videoURL)
+    matches = re.search('^https:\/\/video.nest.com\/clip\/([a-f0-9]{32})', videoURL)
     if not matches:
         return JsonResponse({'error': "That doesn't appear to be a valid URL", 'matches': matches, 'url': videoURL})
 

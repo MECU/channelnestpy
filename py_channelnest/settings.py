@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
-import os
+import os, dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -74,18 +74,20 @@ WSGI_APPLICATION = 'py_channelnest.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgres',
-        'DATABASE_URL': os.environ.get('DATABASE_URL', ''),
-        # 'NAME': os.environ.get('DB_DATABASE', 'channelnest'),
-        'USER': os.environ.get('DB_USER', ''),
-        'PASSWORD': os.environ.get('DB_PASSWORD', ''),
-        # 'HOST': os.environ.get('DB_HOST', '127.0.0.1'),
-        # 'PORT': os.environ.get('DB_PORT', '33060'),
-    }
-}
+DATABASES = {}
+    # 'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'DATABASE_URL': os.environ.get('DATABASE_URL', ''),
+#         'NAME': os.environ.get('DB_DATABASE', 'channelnest'),
+#         'USER': os.environ.get('DB_USER', ''),
+#         'PASSWORD': os.environ.get('DB_PASSWORD', ''),
+#         # 'HOST': os.environ.get('DB_HOST', '127.0.0.1'),
+#         # 'PORT': os.environ.get('DB_PORT', '33060'),
+#     }
+# }
 
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+DATABASES['default'] = dj_database_url.parse(os.environ.get('DATABASE_URL'))
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
