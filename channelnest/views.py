@@ -58,3 +58,7 @@ def videoCheck(request):
         })
 
     return JsonResponse({'error': "Url didn't check out. Double check your copy & paste skills."})
+
+
+def register(request):
+    return render(request, 'registration/register.html')

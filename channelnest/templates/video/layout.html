@@ -39,7 +39,7 @@
                             <li><a href="{% url 'logout' %}">{{ user.username }}</a></li>
                             <li><a href="{% url 'logout' %}">Log out</a></li>
                         {% else %}
-                            <li><a href="{% url 'register' %}">Register</a></li>
+                            <li><a href="{% url 'channelnest:register' %}">Register</a></li>
                             <li><a href="{% url 'login' %}">Log in</a></li>
                         {% endif %}
                     </ul>
