@@ -4,3 +4,5 @@ gunicorn==19.6.0
 psycopg2==2.7.1
 whitenoise==2.0.6
 requests==2.14.2
+django[argon2]
+django[bcrypt]

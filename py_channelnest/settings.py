@@ -74,20 +74,7 @@ WSGI_APPLICATION = 'py_channelnest.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {}
-    # 'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'DATABASE_URL': os.environ.get('DATABASE_URL', ''),
-#         'NAME': os.environ.get('DB_DATABASE', 'channelnest'),
-#         'USER': os.environ.get('DB_USER', ''),
-#         'PASSWORD': os.environ.get('DB_PASSWORD', ''),
-#         # 'HOST': os.environ.get('DB_HOST', '127.0.0.1'),
-#         # 'PORT': os.environ.get('DB_PORT', '33060'),
-#     }
-# }
-
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)
-DATABASES['default'] = dj_database_url.parse(os.environ.get('DATABASE_URL'))
+DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -107,6 +94,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+    'django.contrib.auth.hashers.BCryptPasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
