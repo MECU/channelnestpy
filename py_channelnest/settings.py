@@ -151,4 +151,18 @@ AUTHENTICATION_BACKENDS = (
 # AllAuth setting
 SITE_ID = 2
 
-ADMINS = (('Michael Hoppes', 'hoppes@gmail.com'),)
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'ERROR'),
+        },
+    },
+}
