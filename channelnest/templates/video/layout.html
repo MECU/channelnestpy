@@ -37,10 +37,10 @@
                     <ul class="nav navbar-nav navbar-right">
                         {% if user.is_authenticated %}
                             <li><a href="{% url 'channelnest:profile' user.username %}">{{ user.username }}</a></li>
-                            <li><a href="{% url 'logout' %}">Log out</a></li>
+                            <li><a href="{% url 'channelnest:logout' %}">Log out</a></li>
                         {% else %}
                             <li><a href="{% url 'channelnest:register' %}">Register</a></li>
-                            <li><a href="{% url 'login' %}">Log in</a></li>
+                            <li><a href="{% url 'channelnest:login' %}">Log in</a></li>
                         {% endif %}
                     </ul>
                 </div>

@@ -3,7 +3,7 @@
 {% block content %}
 <h2>Log in</h2>
 
-{% if form.errors %}
+{% if errors %}
 <p class="text-warning">Your username and password didn't match. Please try again.</p>
 {% endif %}
 
@@ -13,7 +13,7 @@
     {% endif %}
 {% endif %}
 
-<form method="post" action="{% url 'login' %}" class="form-horizontal">
+<form method="post" action="{% url 'channelnest:login' %}" class="form-horizontal">
 {% csrf_token %}
     <div class="form-group form-group-lg">
         <label class="col-sm-3 text-right control-label" for="id_username">Username:</label>
