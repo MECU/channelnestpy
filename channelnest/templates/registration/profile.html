@@ -1,0 +1,44 @@
+{% extends "video/layout.html" %}
+{% load static %}
+
+{% block content %}
+<h2>Profile</h2>
+
+<form method="post" action="{% url 'channelnest:register' %}" class="form-horizontal">
+{% csrf_token %}
+    <div class="form-group form-group-lg">
+        <label class="col-sm-3 text-right control-label" for="id_username">Username:</label>
+        <div class="col-sm-9">
+            <input class="form-control" type="text" autofocus id="id_username" required name="username">
+        </div>
+    </div>
+    <div class="form-group form-group-lg">
+        <label class="col-sm-3 text-right control-label" for="id_password">Password:</label>
+        <div class="col-sm-9">
+            <input class="form-control" type="password" id="id_password" required name="password">
+            <div class="progress">
+                <div id="complexity-bar" class="progress-bar progress-bar-danger" role="progressbar" style="width: 0%;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group form-group-lg">
+        <div class="col-sm-3 text-right">
+            &nbsp;
+        </div>
+        <div class="col-sm-9">
+            <input class="btn btn-lg btn-success" type="submit" value="Create Account" />
+        </div>
+    </div>
+</form>
+
+<script src="{% static 'channelnest/jquery.complexify.js' %}"></script>
+<script>
+	$('#id_password').complexify({}, function (valid, complexity) {
+		var progressBar = $('#complexity-bar');
+
+		progressBar.toggleClass('progress-bar-success', valid);
+		progressBar.toggleClass('progress-bar-danger', !valid);
+		progressBar.css({'width': complexity + '%'});
+	});
+</script>
+{% endblock %}

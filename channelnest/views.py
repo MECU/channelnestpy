@@ -4,6 +4,7 @@ import re, requests, datetime
 from django.shortcuts import get_object_or_404, render
 from django.http import JsonResponse
 from .models import Video, Type
+from django.contrib.auth.models import User
 
 
 # output = ', '.join([v.title for v in latest_videos_list])
@@ -62,3 +63,8 @@ def videoCheck(request):
 
 def register(request):
     return render(request, 'registration/register.html')
+
+
+def profile(request, user_name):
+    user = get_object_or_404(User, user_name=user_name)
+    return render(request, 'registration/profile.html', {'user': user})
