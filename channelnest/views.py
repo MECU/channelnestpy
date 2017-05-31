@@ -5,6 +5,7 @@ from django.shortcuts import get_object_or_404, render
 from django.http import JsonResponse, HttpResponseRedirect
 from .models import Video, Type
 from django.contrib.auth.models import User
+from allauth.account.decorators import verified_email_required
 
 
 # output = ', '.join([v.title for v in latest_videos_list])
@@ -19,6 +20,7 @@ def video(request, video_id):
     return render(request, 'video/video.html', {'video': video})
 
 
+@verified_email_required
 def videoSubmit(request):
     return render(request, 'video/videoSubmit.html')
 
