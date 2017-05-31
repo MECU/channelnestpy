@@ -2,7 +2,7 @@
 import re, requests, datetime
 
 from django.shortcuts import get_object_or_404, render
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseRedirect
 from .models import Video, Type
 from django.contrib.auth.models import User
 
@@ -63,4 +63,8 @@ def videoCheck(request):
 
 def profile(request, username):
     user = get_object_or_404(User, username=username)
-    return render(request, 'registration/profile.html', {'user': user})
+    return render(request, 'account/profile.html', {'user': user})
+
+
+def profileRedirect(request):
+    return HttpResponseRedirect('/accounts/profile/%s/' % request.user.username)

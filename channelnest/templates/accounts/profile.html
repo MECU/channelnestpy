@@ -1,0 +1,27 @@
+{% extends "video/layout.html" %}
+{% load static %}
+
+{% block content %}
+<h2>Profile</h2>
+<div>
+    <div class="col-sm-6 text-right">Username:</div>
+    <div class="col-sm-6">{{ user.username }}</div>
+</div>
+<div>
+    <div class="col-sm-6 text-right">First Name:</div>
+    <div class="col-sm-6">{{ user.first_name }}</div>
+</div>
+<div>
+    <div class="col-sm-6 text-right">Last Name:</div>
+    <div class="col-sm-6">{{ user.last_name }}</div>
+</div>
+<div>
+    <div class="col-sm-6 text-right">Join Date:</div>
+    <div class="col-sm-6">{{ user.date_joined }}</div>
+</div>
+<div>
+    <div class="col-sm-6 text-right">Last Login:</div>
+    <div class="col-sm-6">{{ user.last_login }}</div>
+</div>
+
+{% endblock %}
