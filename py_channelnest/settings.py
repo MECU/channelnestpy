@@ -57,10 +57,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-MIDDLEWARE_CLASSES = [
-  'whitenoise.middleware.WhiteNoiseMiddleware',
-]
-
 ROOT_URLCONF = 'py_channelnest.urls'
 
 TEMPLATES = [
@@ -154,3 +150,5 @@ AUTHENTICATION_BACKENDS = (
 
 # AllAuth setting
 SITE_ID = 2
+
+ADMINS = (('Michael Hoppes', 'hoppes@gmail.com'),)
