@@ -149,4 +149,4 @@ AUTHENTICATION_BACKENDS = (
 )
 
 # AllAuth setting
-SITE_ID = 2
+SITE_ID = 1
