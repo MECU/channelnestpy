@@ -41,7 +41,8 @@ def videoCheck(request):
     if response.status_code == requests.codes.ok:
         # We got one!
         type = Type.objects.get(pk=1)
-        video = Video(id=matches.group(1), title='TBD', type=type, date_created=datetime.datetime.now())
+        video = Video(id=matches.group(1), title='TBD', type=type,
+                      date_created=datetime.datetime.now(), uesr=request.user)
 
         # Get the page proper to get the title
         page = requests.get(videoURL)

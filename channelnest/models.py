@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Type(models.Model):
@@ -20,6 +21,7 @@ class Video(models.Model):
     title = models.CharField(max_length=256)
     type = models.ForeignKey(Type, on_delete=models.CASCADE)
     date_created = models.DateTimeField('date published')
+    user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
 
     def __str__(self):
         return self.title
