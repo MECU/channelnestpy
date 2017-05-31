@@ -65,6 +65,6 @@ def register(request):
     return render(request, 'registration/register.html')
 
 
-def profile(request, user_name):
-    user = get_object_or_404(User, user_name=user_name)
+def profile(request, username):
+    user = get_object_or_404(User, username=username)
     return render(request, 'registration/profile.html', {'user': user})
